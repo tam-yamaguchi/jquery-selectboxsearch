@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>Example</title>
+</head>
+<body>
+<div>
+
+<form action="#" method="post" enctype="multipart/form-data">
+<table>
+<tbody>
+<tr>
+<td>
+<p><input id="keyword1" type="text" placeholder="keyword" size="20" style="width:190px"></p>
+<select id="box1" multiple="multiple" name="box1[]" size="10" style="width:200px">
+<option value="item_1">item 1</option>
+<option value="item_2">item 2</option>
+<option value="item_3">item 3</option>
+<option value="item_4">item 4</option>
+<option value="item_5">item 5</option>
+<option value="item_6">item 6</option>
+<option value="item_7">item 7</option>
+<option value="item_8">item 8</option>
+<option value="item_9">item 9</option>
+<option value="item_10">item 10</option>
+<option value="item_11">item 11</option>
+<option value="item_12">item 12</option>
+<option value="item_13">item 13</option>
+<option value="item_14">item 14</option>
+<option value="item_15">item 15</option>
+<option value="item_16">item 16</option>
+<option value="item_17">item 17</option>
+<option value="item_18">item 18</option>
+<option value="item_19">item 19</option>
+</select>
+</td>
+<td align="center" valign="middle" style="border: none;">
+    <button name="" type="submit" onclick="moveBox2(); return false;"><span>&#8594;</span></button><br />
+    <button name="" type="submit" onclick="moveBox1(); return false;"><span>&#8592;</span></button>
+</td>
+<td>
+<p><input type="text" id="keyword2" placeholder="keyword" size="20" style="width:190px"></p>
+<select id="box2" multiple="multiple" name="box2[]" size="10" style="width:200px">
+<option value="item_20">item 20</option>
+</select>
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="../jquery.selectboxsearch.js"></script>
+<script type="text/javascript">
+
+var $search1  = $('#keyword1');
+$search1.selectboxsearch('#box1');
+var search1Data = $search1.data("plugin_selectboxsearch");
+
+var $search2  = $('#keyword2');
+$search2.selectboxsearch('#box2');
+var search2Data = $search2.data("plugin_selectboxsearch");
+
+function moveBox1()
+{
+  var arrayBox2 = $('#box2 option:selected').map(function () { return this;})
+
+  search1Data.additem(arrayBox2);
+  search2Data.delitem(arrayBox2);
+}
+function moveBox2()
+{
+  var arrayBox1 = $('#box1 option:selected').map(function () { return this;})
+
+  search2Data.additem(arrayBox1);
+  search1Data.delitem(arrayBox1);
+}
+</script>
+</body>
+</html>
