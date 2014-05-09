@@ -1,6 +1,7 @@
 # jQuery selectboxsearch plug-in
 
-A [jQuery][jquery_site] based plug-in
+A [jQuery](http://jquery.com/ "jQuery") based plug-in
+
 
 ## Examples
 
