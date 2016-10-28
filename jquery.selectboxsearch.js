@@ -44,7 +44,7 @@
             $(this.target).children().remove();
             for (var i = 0, len = array.length; i < len; i++) {
                 if(array[i]) {
-                    var pos = array[i].innerHTML.indexOf(val,0);
+                    var pos = array[i].innerHTML.toLowerCase().indexOf(val,0);
                     // キーワードが空、もしくはヒットした場合要素追加
                     if((val.replace(' ', '').length === 0) || pos >= 0) {
                         $(this.target).append(array[i]);
